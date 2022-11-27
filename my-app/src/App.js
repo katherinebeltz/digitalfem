@@ -1,22 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { Button} from 'react-bootstrap';
+
+
 
 function App() {
-  return (
+
+  const navigate = useNavigate(); 
+  
+  const navigateToCompany = () => {
+      navigate('/company');
+  }
+
+ return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          This is my website
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Button color="primary" className="px-4"
+            onClick={navigateToCompany}
+              >
+              View Info
+            </Button>
+        
       </header>
     </div>
   );
