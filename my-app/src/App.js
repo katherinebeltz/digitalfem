@@ -1,34 +1,28 @@
-import './App.css';
-import { useNavigate } from "react-router-dom";
-import React from 'react';
-import { Button} from 'react-bootstrap';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Home from './Home.js';
+import Company from './Company.js';
 
-
-
-function App() {
-
-  const navigate = useNavigate(); 
-  
-  const navigateToCompany = () => {
-      navigate('/company');
+class App extends Component {
+  render() {
+    return (
+    <Router>
+       <div>
+          <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <ul className="navbar-nav mr-auto">
+            <li><Link to={'/'} className="nav-link"> Home </Link></li>
+            <li><Link to={'/company'} className="nav-link">Company</Link></li>
+          </ul>
+          </nav>
+          <hr />
+          <Routes>
+              <Route exact path='/' component={Home} />
+              <Route path='/company' component={Company} />
+          </Routes>
+        </div>
+      </Router>
+    );
   }
-
- return (
-    <div className="App">
-      <header className="App-header">
-
-        <p>
-          This is my website
-        </p>
-        <Button color="primary" className="px-4"
-            onClick={navigateToCompany}
-              >
-              View Info
-            </Button>
-        
-      </header>
-    </div>
-  );
 }
 
 export default App;
